@@ -3,14 +3,38 @@ import heroimage from "./images/bg.png";
 import mail from "./images/mail.png";
 import github from "./images/github.png";
 import linkedin from "./images/linkedin.png";
-import itb from "./images/ITB.png";
+import fb from "./images/fb.png";
+import insta from "./images/insta.png";
+import twitter from './images/twitter.png';
+import itb from "./images/itb.png";
 import design from "./images/design.png";
 import develop from "./images/develop.png";
 import maintain from "./images/maintain.png";
 import divider from "./images/divider.png";
 
+// icons
+import html from './images/html.png';
+import css from './images/css.png';
+import sass from './images/sass.png';
+import javascript from './images/javascript.png';
+import vuejs from './images/vuejs.png';
+import laravel from './images/laravel.png';
+import mongo from './images/mongo.png';
+import bootstrap from './images/bootstrap.png';
+import git from './images/git.png';
+import ubuntu from './images/ubuntu.png';
+import nodejs from './images/nodejs.png';
+import tailwind from './images/tailwind.png';
+import react from './images/react.png';
+import python from './images/python.png';
+
+// project images
+import project from './images/project.png';
+import project1 from './images/project1.png';
+import project2 from './images/project2.png';
+
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 
 function App() {
   return (
@@ -115,63 +139,63 @@ function About() {
   let skills = [
     {
       name: 'html',
-      image: '/images/html.png'
+      image: html
     },
     {
       name: 'css',
-      image: '/images/css.png'
+      image: css
     },
     {
       name: 'sass',
-      image: '/images/sass.png'
+      image: sass
     },
     {
       name: 'javascript',
-      image: '/images/javascript.png'
+      image: javascript
     },
     {
       name: 'react',
-      image: '/images/react.png'
+      image: react
     },
     {
       name: 'vue',
-      image: '/images/vuejs.png'
+      image: vuejs
     },
 
     {
       name: 'bootstrap',
-      image: '/images/bootstrap.png'
+      image: bootstrap
     },
 
     {
       name: 'git',
-      image: '/images/git.png'
+      image: git
     },
     {
       name: 'laravel',
-      image: '/images/laravel.png'
+      image: laravel
     },
     {
       name: 'python',
-      image: '/images/python.png'
+      image: python
     },
     {
       name: 'Ubuntu',
-      image: '/images/ubuntu.png'
+      image: ubuntu
     },
   ];
   let learning = [
     {
       name: 'nodejs',
-      image: '/images/nodejs.png'
+      image: nodejs
     },
     {
       name: 'mongodb',
-      image: '/images/mongo.png'
+      image: mongo
     },
     {
       name: 'Tailwind CSS',
-      image: '/images/tailwind.png'
+      image: tailwind
     },
 
   ];
@@ -281,22 +305,22 @@ function Portfolio() {
 
   let projects = [
     {
-      image: "/images/project.png",
+      image: project,
       title: "Frontend Development",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur.",
-      tags: ['./images/tailwind.png', './images/react.png', './images/javascript.png']
+      tags: [tailwind, react, javascript]
     },
     {
-      image: "/images/project1.png",
+      image: project1,
       title: "Project Two",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur.",
-      tags: ['./images/vuejs.png', './images/html.png', './images/css.png']
+      tags: [vuejs, html, css]
     },
     {
-      image: "/images/Project2.png",
+      image: project2,
       title: "Fullstack Development",
       desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur.",
-      tags: ['./images/laravel.png', './images/vuejs.png', './images/javascript.png']
+      tags: [laravel, vuejs, javascript]
     },
   ]
 
@@ -371,21 +395,18 @@ function Contact() {
 function Footer() {
   let social = [
     {
-      icon: './images/fb.png',
+      icon: fb,
       link: ""
     },
     {
-      icon: './images/insta.svg',
+      icon: insta,
       link: ""
     },
     {
-      icon: './images/mail.svg',
+      icon: twitter,
       link: ""
     },
-    {
-      icon: './images/linkedin.svg',
-      link: ""
-    },
+   
 
   ]
   return (

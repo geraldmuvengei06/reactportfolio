@@ -76,24 +76,23 @@ function Navbar() {
   useEffect(() => {
     // dispatch(authenticate())
     window.addEventListener('scroll', () => {
-      let bg = window.scrollY > 200 ? 'black' : 'transparent'
+      let bg = window.scrollY > 200 ? 'indigo-50 shadow-xl' : 'transparent'
       return setNavclass(bg)
     })
   }, [])
 
   return (
-    <nav className={`bg-${navclass} fixed top-0 left-0 right-0 z-40 transition duration-500`}>
+    <nav className={`bg-${navclass} filter fixed top-0 left-0 right-0 z-40 transition duration-500`}>
       <div className="container mx-auto py-4 px-4 flex justify-between flex-column">
         <div className="nav-logo flex-none">
           <img src={logo} alt="geraldmuvengei" />
         </div>
         <ul className="hidden sm:flex justify-around">
-          <li className="m-2"><a href="#about" className="font-bold text-sm text-blue-50 hover:text-gray-200">About Me</a></li>
-          <li className="m-2"><a href="#about" className="font-bold text-sm text-blue-50 hover:text-gray-200">Skills</a></li>
-          <li className="m-2"><a href="#portfolio" className="font-bold text-sm text-blue-50 hover:text-gray-200">Portfolio</a></li>
-    
+          <li className="m-2"><a href="#about" className="font-bold text-sm text-black hover:text-gray-200">About Me</a></li>
+          <li className="m-2"><a href="#portfolio" className="font-bold text-sm text-black hover:text-gray-200">Portfolio</a></li>
+
           <li className="m-2 hover:mb-1 font-bold">
-            <a href="#contact" className="py-4 px-6 rounded-full bg-blue-50 text-black">{is_authenticated ? 'Logout': 'Login'} 🤙🏾</a>
+            <a href="mailto:geraldmuvengei06@gmail.com" className="py-4 px-6 rounded-full bg-black text-indigo-50">Contact Me ✉️</a>
           </li>
         </ul>
       </div>
@@ -120,31 +119,36 @@ function Hero() {
     }
   ]
   return (
-    <section className="flex z-0 hero bg-blue-50 min-h-full">
-      <div className="flex-grow">
-        <div className="container pt-56 md:pt-32 px-6 sm:px-12 px-sm-24 mx-auto  grid items-center content-center h-full">
-          <h1 className="mb-8">
-            <span className="text-2xl sm:text-4xl">Hi, I am</span> <br />
-            <span className="text-5xl sm:text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei</span> <br />
-            <span className="text-base text-gray-500 font-bold">A Frontend Developer / Fullstack Developer</span> <br />
-          </h1>
+    <section className="hero bg-blue-50">
+      <div className="container mx-auto px-4 md:px-40 items-center">
+        <div className="flex justify-center ">
+          <div className="flex items-center my-32 item">
+            <div className="mt-32">
+              <h1 className="mb-8">
+                <span className="text-2xl sm:text-4xl">Hi, I am</span> <br />
+                <span className="text-5xl sm:text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei</span> <br />
+                <span className="text-base text-gray-500 font-bold">A Frontend Developer / Fullstack Developer</span> <br />
+              </h1>
 
-          <div className="mb-8 flex">
-            {
-              contact.map((item) => {
-                return (
-                  <a href={item.href} target="_blank" rel="noreferrer" className="w-10 p-2 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
-                )
-              })
-            }
+              <div className="mb-8 flex">
+                {
+                  contact.map((item) => {
+                    return (
+                      <a href={item.href} target="_blank" rel="noreferrer" className="w-10 p-2 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden md:block flex-1 h-auto pt-12 sm:none">
+              <img className="object-contain" alt="geraldmuvengei" src={heroimage} />
           </div>
         </div>
       </div>
-      <div className="hidden md:block flex-grow bg-black h-auto pt-12 sm:none">
-        <div className="container  pt-6 px-6">
-          <img className="object-contain -mr-16" alt="geraldmuvengei" src={heroimage} />
-        </div>
-      </div>
+
+
     </section>
   )
 }
@@ -398,7 +402,7 @@ function Portfolio() {
 
   return (
     <section className="bg-gradient-to-b from-purple-400 to-pink-600  py-16">
-      <div className="container px-4 md:px-20  mx-auto flex flex-col items-center">
+      <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
         <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Projects</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">

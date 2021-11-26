@@ -36,8 +36,8 @@ import project2 from './images/project2.png';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Counter from './features/counter/Counter';
-import { useDispatch, useSelector } from 'react-redux';
-import { authenticate } from './features/auth/authSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { authenticate } from './features/auth/authSlice';
 
 function App() {
   return (
@@ -71,8 +71,8 @@ function App() {
 function Navbar() {
   const [navclass, setNavclass] = useState('transparent')
 
-  const is_authenticated = useSelector(state => state.auth.is_authenticated)
-  const dispatch = useDispatch()
+  // const is_authenticated = useSelector(state => state.auth.is_authenticated)
+  // const dispatch = useDispatch()
   useEffect(() => {
     // dispatch(authenticate())
     window.addEventListener('scroll', () => {
@@ -284,21 +284,21 @@ function Skills() {
       image: tailwind
     },
   ];
-  let learning = [
-    {
-      name: 'nodejs',
-      image: nodejs
-    },
-    {
-      name: 'mongodb',
-      image: mongo
-    },
-    {
-      name: 'Tailwind CSS',
-      image: tailwind
-    },
+  // let learning = [
+  //   {
+  //     name: 'nodejs',
+  //     image: nodejs
+  //   },
+  //   {
+  //     name: 'mongodb',
+  //     image: mongo
+  //   },
+  //   {
+  //     name: 'Tailwind CSS',
+  //     image: tailwind
+  //   },
 
-  ];
+  // ];
 
 
   return (

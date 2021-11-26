@@ -9,3 +9,21 @@
 .hero{
     margin-top: -82px;
 }
+
+.hozirontal-scroll{
+    width: 1200px;
+    animation: infiniteHorizontalScroll 20s linear infinite;
+}
+.hozirontal-scroll:hover{
+    animation-play-state: paused;
+}
+
+
+@keyframes infiniteHorizontalScroll{
+  from{
+    margin-left: 0%;
+  }
+  to{
+    margin-left: -120%;
+  }
+}

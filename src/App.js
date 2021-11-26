@@ -35,6 +35,9 @@ import project2 from './images/project2.png';
 
 import './App.css';
 import { useEffect, useState } from 'react';
+import Counter from './features/counter/Counter';
+import { useDispatch, useSelector } from 'react-redux';
+import { authenticate } from './features/auth/authSlice';
 
 function App() {
   return (
@@ -48,6 +51,11 @@ function App() {
       {/* <Intro /> */}
       {/* about & skills*/}
       <About id="about" />
+
+      <Divider />
+      <Counter />
+
+      <Skills id="skills" />
       {/* portfolio */}
       <Portfolio id="portfolio" />
       {/* contact */}
@@ -63,25 +71,28 @@ function App() {
 function Navbar() {
   const [navclass, setNavclass] = useState('transparent')
 
+  const is_authenticated = useSelector(state => state.auth.is_authenticated)
+  const dispatch = useDispatch()
   useEffect(() => {
+    // dispatch(authenticate())
     window.addEventListener('scroll', () => {
-      let bg = window.scrollY > 200 ? 'black' : 'transparent'
+      let bg = window.scrollY > 200 ? 'indigo-50 shadow-xl' : 'transparent'
       return setNavclass(bg)
     })
   }, [])
 
   return (
-    <nav className={`bg-${navclass} fixed top-0 left-0 right-0 z-40 transition duration-500`}>
+    <nav className={`bg-${navclass} filter fixed top-0 left-0 right-0 z-40 transition duration-500`}>
       <div className="container mx-auto py-4 px-4 flex justify-between flex-column">
         <div className="nav-logo flex-none">
           <img src={logo} alt="geraldmuvengei" />
         </div>
         <ul className="hidden sm:flex justify-around">
-          <li className="m-2"><a href="#about" className="font-bold text-sm text-blue-50 hover:text-gray-200">About Me</a></li>
-          <li className="m-2"><a href="#about" className="font-bold text-sm text-blue-50 hover:text-gray-200">Skills</a></li>
-          <li className="m-2"><a href="#portfolio" className="font-bold text-sm text-blue-50 hover:text-gray-200">Portfolio</a></li>
+          <li className="m-2"><a href="#about" className="font-bold text-sm text-black hover:text-gray-200">About Me</a></li>
+          <li className="m-2"><a href="#portfolio" className="font-bold text-sm text-black hover:text-gray-200">Portfolio</a></li>
+
           <li className="m-2 hover:mb-1 font-bold">
-            <a href="#contact" className="py-4 px-6 rounded-full bg-blue-50 text-black">Contact Me 🤙🏾</a>
+            <a href="mailto:geraldmuvengei06@gmail.com" className="py-4 px-6 rounded-full bg-black text-indigo-50">Contact Me ✉️</a>
           </li>
         </ul>
       </div>
@@ -108,31 +119,36 @@ function Hero() {
     }
   ]
   return (
-    <section className="flex z-0 hero bg-blue-50 min-h-full">
-      <div className="flex-grow">
-        <div className="container pt-56 md:pt-32 px-12 px-sm-24 mx-auto  grid items-center content-center h-full">
-          <h1 className=" mb-8">
-            <span className="text-4xl">Hi, I am</span> <br />
-            <span className="text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei</span> <br />
-            <span className="text-base text-gray-500 font-bold">A Frontend Developer / Fullstack Developer</span> <br />
-          </h1>
+    <section className="hero bg-blue-50">
+      <div className="container mx-auto px-4 md:px-40 items-center">
+        <div className="flex justify-center ">
+          <div className="flex items-center my-32 item">
+            <div className="mt-32">
+              <h1 className="mb-8">
+                <span className="text-2xl sm:text-4xl">Hi, I am</span> <br />
+                <span className="text-5xl sm:text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei</span> <br />
+                <span className="text-base text-gray-500 font-bold">A Frontend Developer / Fullstack Developer</span> <br />
+              </h1>
 
-          <div className="mb-8 flex">
-            {
-              contact.map((item) => {
-                return (
-                  <a href={item.href} target="_blank" rel="noreferrer" className="w-10 p-2 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
-                )
-              })
-            }
+              <div className="mb-8 flex">
+                {
+                  contact.map((item) => {
+                    return (
+                      <a href={item.href} target="_blank" rel="noreferrer" className="w-10 p-2 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden md:block flex-1 h-auto pt-12 sm:none">
+              <img className="object-contain" alt="geraldmuvengei" src={heroimage} />
           </div>
         </div>
       </div>
-      <div className="hidden md:block flex-grow bg-black h-auto pt-12 sm:none">
-        <div className="container  pt-6 px-6">
-          <img className="object-contain -mr-16" alt="geraldmuvengei" src={heroimage} />
-        </div>
-      </div>
+
+
     </section>
   )
 }
@@ -154,8 +170,59 @@ function Hero() {
 //   )
 // }
 
-
 function About() {
+  let services = [
+    {
+      image: design,
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      title: "Frontend Development"
+    },
+    {
+      image: develop,
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      title: "Fullstack Development"
+    },
+    {
+      image: maintain,
+      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      title: "Server Management & Maintenance"
+    },
+  ];
+
+  return (
+
+    <section className="about bg-white py-16">
+      <div className="container px-4 md:px-40  mx-auto flex flex-col items-center" >
+        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">About Me</h1>
+        <p className="text-center w-2/3 mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
+        {/* <span className="uppercase text-sm font-medium border-r-2 border-l-2 border-black px-4 py-2 text-black">Explore</span> */}
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-12 ">
+
+          {
+            services.map((service) => {
+              return (
+                <media className="flex py-2">
+                  <figure className="w-12 flex-none -mr-4 -mt-2">
+                    <img className="object-contain  relative" src={service.image} alt={service.title} />
+                  </figure>
+                  <div className="media-content flex-grow ">
+                    <h2 className="text-lg uppercase text-black font-bold mb-3">{service.title}</h2>
+                    <p>{service.desc}</p>
+                  </div>
+                </media>
+              )
+            })
+          }
+        </div>
+      </div>
+    </section>
+  )
+
+
+}
+
+function Skills() {
 
   let skills = [
     {
@@ -204,6 +271,18 @@ function About() {
       name: 'Ubuntu',
       image: ubuntu
     },
+    {
+      name: 'nodejs',
+      image: nodejs
+    },
+    {
+      name: 'mongodb',
+      image: mongo
+    },
+    {
+      name: 'Tailwind CSS',
+      image: tailwind
+    },
   ];
   let learning = [
     {
@@ -221,61 +300,17 @@ function About() {
 
   ];
 
-  let services = [
-    {
-      image: design,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
-      title: "Frontend Development"
-    },
-    {
-      image: develop,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
-      title: "Fullstack Development"
-    },
-    {
-      image: maintain,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
-      title: "Server Management & Maintenance"
-    },
-  ];
+
   return (
     <section className="about bg-white py-16">
-      <div className="container px-4 md:px-40  mx-auto flex flex-col items-center">
-        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">About Me</h1>
-        <p className="text-center w-2/3 mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
-        <span className="uppercase text-sm font-medium border-r-2 border-l-2 border-black px-4 py-2 text-black">Explore</span>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-12 ">
-
-          {
-            services.map((service) => {
-              return (
-                <media className="flex py-2">
-                  <figure className="w-12 flex-none -mr-4 -mt-2">
-                    <img className="object-contain  relative" src={service.image} alt={service.title} />
-                  </figure>
-                  <div className="media-content flex-grow ">
-                    <h2 className="text-lg uppercase text-black font-bold mb-3">{service.title}</h2>
-                    <p>{service.desc}</p>
-                  </div>
-                </media>
-              )
-            })
-          }
-
-
-
-
-        </div>
-
-
-        <Divider />
-
+      <div className="container px-4 md:px-40  mx-auto flex flex-col items-center" >
         <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Skills</h1>
+      </div>
 
-        <h2 className="font-bold uppercase mt-12 mb-4 text-left" >Using Now:</h2>
+      {/* <h2 className="font-bold uppercase mt-12 mb-4 text-left" >Using Now:</h2> */}
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-24 gap-y-12 mb-12">
+      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-24 gap-y-12 mb-12">
           {
             skills.map((skill) => {
               return (
@@ -288,9 +323,27 @@ function About() {
               )
             })
           }
+        </div> */}
+      <div className="mx-auto w-full overflow-hidden">
+        <div className="flex mb-12 justify-betweem hozirontal-scroll">
+          {
+            skills.map((skill) => {
+              return (
+                <media className="text-center scroll-item py-4 px-16">
+                  <figure className="justify-center flex">
+                    <img className="h-16 object-contain relative filter  hover:grayscale" alt={skill.name} src={skill?.image} />
+                  </figure>
+                  <p className="uppercase font-light mt-4">{skill?.name}</p>
+                </media>
+              )
+            })
+          }
         </div>
 
-        <h2 className="font-bold uppercase mb-4 mt-12 text-black">Learning:</h2>
+      </div>
+
+
+      {/* <h2 className="font-bold uppercase mb-4 mt-12 text-black">Learning:</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-24 gap-y-12 mb-12">
           {
             learning.map((skill) => {
@@ -304,18 +357,19 @@ function About() {
               )
             })
           }
-        </div>
+        </div> */}
 
-      </div>
 
-    </section>
+      {/* </div> */}
+
+    </section >
   )
 }
 
 function Divider() {
   return (
     <section className="container px-4 md:px-56 mx-auto flex flex-col items-center py-12">
-      <img className="w-28" src={divider} alt="divider"/>
+      <img className="w-28" src={divider} alt="divider" />
     </section>
   )
 }
@@ -324,21 +378,21 @@ function Portfolio() {
 
   let projects = [
     {
-      href :"https://geraldmuvengei.com",
+      href: "https://geraldmuvengei.com",
       image: project,
       title: "Frontend Development",
       desc: "Portfolio Website",
       tags: [tailwind, react, javascript]
     },
     {
-      href :"https://kensoko.com",
+      href: "https://kensoko.com",
       image: project1,
       title: "Frontend Development",
       desc: "Kensoko Ecommerce Website",
       tags: [vuejs, html, css, bootstrap]
     },
     {
-      href :"https://vitron.co.ke",
+      href: "https://vitron.co.ke",
       image: project2,
       title: "Frontend Development",
       desc: "Vitron Kenya Ecommerce Website",
@@ -348,7 +402,7 @@ function Portfolio() {
 
   return (
     <section className="bg-gradient-to-b from-purple-400 to-pink-600  py-16">
-      <div className="container px-4 md:px-20  mx-auto flex flex-col items-center">
+      <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
         <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Projects</h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">
@@ -357,7 +411,7 @@ function Portfolio() {
               return (
                 <div className="group filter shadow-2xl hover:shadow-1xl bg-indigo-50">
                   <figure>
-                    <img className="object-cover" src={project.image} alt={project.title}/>
+                    <img className="object-cover" src={project.image} alt={project.title} />
                   </figure>
                   <div className="py-6 px-4  relative">
                     <h2 className="text-lg capitalize text-gray-700 font-normal my-2">{project.title}</h2>
@@ -368,7 +422,7 @@ function Portfolio() {
                       {
                         project.tags.map(tag => {
                           return (
-                            <span className="w-10 h-10 p-2 bg-indigo-50 rounded-full filter drop-shadow-md m-1"><img className="object-contain text-black" src={tag} alt={tag}/></span>
+                            <span className="w-10 h-10 p-2 bg-indigo-50 rounded-full filter drop-shadow-md m-1"><img className="object-contain text-black" src={tag} alt={tag} /></span>
                           )
                         })
                       }
@@ -391,18 +445,18 @@ function Portfolio() {
 function Contact() {
   return (
     <section className="about bg-white py-16">
-      <div className="container px-4 md:px-40  mx-auto flex flex-col items-center">
+      <div className="container sm:px-4 md:px-40  mx-auto flex flex-col items-center">
         <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Contact Me</h1>
         <p className="text-center w-2/3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
         <Divider />
 
-        <form className="w-2/3 my-4">
-          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4" type="name" placeholder="enter your name" />
-          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4" type="email" placeholder="enter your email" />
+        <form className="w-10/12 sm:w-2/3 my-4">
+          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4 focus:border-indigo-400 focus:text-indigo-400" type="name" placeholder="enter your name" />
+          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4 focus:border-indigo-400 focus:text-indigo-400" type="email" placeholder="enter your email" />
 
-          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4" type="tel" placeholder="enter your phone number" />
+          <input className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4 focus:border-indigo-400 focus:text-indigo-400" type="tel" placeholder="enter your phone number" />
 
-          <textarea cols="5" placeholder="Message goes here.." className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4">
+          <textarea rows="5" placeholder="Message goes here.." className="border-b-4 border-l-4 border-black px-4 text-sm py-3 w-full uppercase my-4 focus:border-indigo-400 focus:text-indigo-400">
 
           </textarea>
         </form>
@@ -440,7 +494,7 @@ function Footer() {
           {
             social.map(item => {
               return (
-                <a href={item.link} target="_blank" rel="noreferrer" className="w-10 p-2filter drop-shadow-md m-2"><img className="object-contain text-black" src={item.icon} alt={item.icon}/></a>
+                <a href={item.link} target="_blank" rel="noreferrer" className="w-10 p-2filter drop-shadow-md m-2"><img className="object-contain text-black" src={item.icon} alt={item.icon} /></a>
               )
             })
           }

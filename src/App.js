@@ -146,7 +146,7 @@ function Hero() {
           </div>
         </div>
         {/* <!--Right Col--> */}
-        <div class="w-full lg:w-1/2 lg:py-6 text-center">
+        <div class="w-full hidden sm:block lg:w-1/2 lg:py-6 text-center">
           <img className="object-fit" alt="geraldmuvengei" src={heroimage} />
         </div>
       </div>

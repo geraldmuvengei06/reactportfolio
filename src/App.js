@@ -36,6 +36,7 @@ import project2 from './images/project2.png';
 import './App.css';
 import { useEffect, useState } from 'react';
 import Counter from './features/counter/Counter';
+import Post from './components/Post';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authenticate } from './features/auth/authSlice';
 
@@ -58,6 +59,7 @@ function App() {
       <Skills id="skills" />
       {/* portfolio */}
       <Portfolio id="portfolio" />
+      <Articles />
       {/* contact */}
       <Contact id="contact" />
       {/* footer */}
@@ -85,14 +87,14 @@ function Navbar() {
     <nav className={`bg-${navclass} filter fixed top-0 left-0 right-0 z-40 transition duration-500`}>
       <div className="container mx-auto py-4 px-4 flex justify-between flex-column">
         <div className="nav-logo flex-none">
-          <img src={logo} alt="geraldmuvengei" />
+          <img src={logo} className='w-40' alt="geraldmuvengei" />
         </div>
         <ul className="hidden sm:flex justify-around">
           <li className="m-2"><a href="#about" className="font-bold text-sm text-black hover:text-gray-200">About Me</a></li>
           <li className="m-2"><a href="#portfolio" className="font-bold text-sm text-black hover:text-gray-200">Portfolio</a></li>
 
           <li className="m-2 hover:mb-1 font-bold">
-            <a href="mailto:geraldmuvengei06@gmail.com" className="py-4 px-6 rounded-full bg-black text-indigo-50">Contact Me ✉️</a>
+            <a href="#contact" className="py-4 px-6 rounded-full bg-black text-indigo-50">Contact Me ✉️</a>
           </li>
         </ul>
       </div>
@@ -115,86 +117,74 @@ function Hero() {
     {
       name: "Linkedin",
       icon: linkedin,
-      href: "https://linkedin.com/geraldmuvengei"
+      href: "https://www.linkedin.com/in/gerald-muvengei/"
     }
   ]
   return (
-    <section className="hero bg-blue-50">
-      <div className="container mx-auto px-4 md:px-40 items-center">
-        <div className="flex justify-center ">
-          <div className="flex items-center my-32 item">
-            <div className="mt-32">
-              <h1 className="mb-8">
-                <span className="text-2xl sm:text-4xl">Hi, I am</span> <br />
-                <span className="text-5xl sm:text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei</span> <br />
-                <span className="text-base text-gray-500 font-bold">A Frontend Developer / Fullstack Developer</span> <br />
-              </h1>
+    <section className="hero bg-blue-50 pt-12">
+      
 
-              <div className="mb-8 flex">
-                {
-                  contact.map((item) => {
-                    return (
-                      <a href={item.href} target="_blank" rel="noreferrer" className="w-10 p-2 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
-                    )
-                  })
-                }
-              </div>
-            </div>
-          </div>
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center my-12 md:my-24">
+        <div class="flex flex-col w-full lg:w-1/2 justify-center items-start pt-12 pb-24 px-6">
+          <h2 className="my-8">
+            <span className="text-2xl sm:text-4xl">Hi, I am</span> <br />
+            <span className="text-5xl sm:text-7xl font-bold is-title text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-600">Gerald Muvengei </span> <br /><br />
+            <span className="text-3xl sm:text-4xl font-bold">I'm a Frontend Developer for Vue and React</span> <br />
+          </h2>
+          <p className='text-2xl'>
+            I will develop your Vuejs, Nuxtjs, Laravel Web app or website.
+          </p>
 
-          <div className="hidden md:block flex-1 h-auto pt-12 sm:none">
-              <img className="object-contain" alt="geraldmuvengei" src={heroimage} />
+          <div className="mb-8 flex">
+            {
+              contact.map((item) => {
+                return (
+                  <a href={item.href} target="_blank" rel="noreferrer" className="w-16 h-16 p-4 bg-indigo-50 filter drop-shadow-xl m-2"><img className="object-contain text-black" src={item.icon} alt={item.name} /></a>
+                )
+              })
+            }
           </div>
         </div>
+        {/* <!--Right Col--> */}
+        <div class="w-full lg:w-1/2 lg:py-6 text-center">
+          <img className="object-fit" alt="geraldmuvengei" src={heroimage} />
+        </div>
       </div>
+
 
 
     </section>
   )
 }
 
-// function Intro() {
-//   return (
-//     <section className="intro bg-gray-900 flex">
-//       <div className="py-12 px-4 md:px-16 container mx-auto flex-grow">
-//         <h2 className="font-bold text-white uppercase mb-4 text-2xl">Building Solutions to Real Life Problems</h2>
-//         <p className="text-gray-300 mb-4">
-//           Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae, ducimus perferendis facilis consequuntur, molestiae, ea veritatis! Neque error praesentium quia?
-//         </p>
-//         <a href="#about" className="uppercase font-medium border-r-2 border-l-2  px-4 py-2 text-white text-sm">read more</a>
-//       </div>
-//       <div className="flex-1">
-//         <img alt="itb" className="object-contain" src={itb} />
-//       </div>
-//     </section>
-//   )
-// }
 
 function About() {
   let services = [
     {
       image: design,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      desc: "I'm a professional Frontend Developer. I a ton of experience in Vue.js, React.js Vanilla, Javascript. This is my main development stack. I like writing clean code. I believe that it takes good UI/UX to present one's ideas!",
       title: "Frontend Development"
     },
     {
       image: develop,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      desc: "In addition to writing code for the frontend, I'm also conversant with building Rest APIs with PHP Laravel and Nodejs (MERN)",
       title: "Fullstack Development"
     },
     {
       image: maintain,
-      desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae",
+      desc: "I have skills in server management. AWS, Heroku, Vesta CP, VPS, Dedicated servers and more. I'm familiar with Linux (Ubuntu). Devops, CI/CD comes in handly in my career path.",
       title: "Server Management & Maintenance"
     },
   ];
 
   return (
 
-    <section className="about bg-white py-16">
+    <section id="about" className="about bg-white py-16">
       <div className="container px-4 md:px-40  mx-auto flex flex-col items-center" >
-        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">About Me</h1>
-        <p className="text-center w-2/3 mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
+        <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">About Me</h2>
+        <p className="text-left text-2xl w-2/3 mb-12">My name is Gerald, I'm a passionate, self taught Frontend Developer in Vue and React. I love building web based products! What drives me each time I get to my keyboard to write code?
+        <br /> <br /> "Building Quality Solutions to Real Life Problems, with Quality Code ofcourse!"</p>
+        
         {/* <span className="uppercase text-sm font-medium border-r-2 border-l-2 border-black px-4 py-2 text-black">Explore</span> */}
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-12 ">
@@ -284,46 +274,14 @@ function Skills() {
       image: tailwind
     },
   ];
-  // let learning = [
-  //   {
-  //     name: 'nodejs',
-  //     image: nodejs
-  //   },
-  //   {
-  //     name: 'mongodb',
-  //     image: mongo
-  //   },
-  //   {
-  //     name: 'Tailwind CSS',
-  //     image: tailwind
-  //   },
-
-  // ];
 
 
   return (
     <section className="about bg-white py-16">
 
       <div className="container px-4 md:px-40  mx-auto flex flex-col items-center" >
-        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Skills</h1>
+        <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Skills</h2>
       </div>
-
-      {/* <h2 className="font-bold uppercase mt-12 mb-4 text-left" >Using Now:</h2> */}
-
-      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-24 gap-y-12 mb-12">
-          {
-            skills.map((skill) => {
-              return (
-                <media className="text-center">
-                  <figure className="justify-center flex">
-                    <img className="h-16 object-contain relative filter  hover:grayscale" alt={skill.name} src={skill?.image} />
-                  </figure>
-                  <p className="uppercase font-light mt-4">{skill?.name}</p>
-                </media>
-              )
-            })
-          }
-        </div> */}
       <div className="mx-auto w-full overflow-hidden">
         <div className="flex mb-12 justify-betweem hozirontal-scroll">
           {
@@ -342,25 +300,6 @@ function Skills() {
 
       </div>
 
-
-      {/* <h2 className="font-bold uppercase mb-4 mt-12 text-black">Learning:</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-24 gap-y-12 mb-12">
-          {
-            learning.map((skill) => {
-              return (
-                <media className="text-center">
-                  <figure className="justify-center flex">
-                    <img className="h-16 object-contain relative  filter  hover:grayscale" alt={skill.name} src={skill?.image} />
-                  </figure>
-                  <p className="uppercase font-light mt-4">{skill?.name}</p>
-                </media>
-              )
-            })
-          }
-        </div> */}
-
-
-      {/* </div> */}
 
     </section >
   )
@@ -401,9 +340,9 @@ function Portfolio() {
   ]
 
   return (
-    <section className="bg-gradient-to-b from-purple-400 to-pink-600  py-16">
+    <section id="portfolio" className="bg-gradient-to-b from-purple-400 to-pink-600  py-16">
       <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
-        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Projects</h1>
+        <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Projects</h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">
           {
@@ -442,11 +381,70 @@ function Portfolio() {
 }
 
 
+function Articles() {
+  let posts = [
+    {
+      title: "Cool Projects to Help You Learn React JS - Part 1 ",
+      description: "Personally, when I want to learn a new Framework, I go through the documentation to grasp the basic and core 'Hows and Whys', then I start basic applications to practice the concepts I've learned. ",
+      content: "Personally, when I want to learn a new Framework, I go through the documentation to grasp the basic and core 'Hows and Whys', then I start basic applications to practice the concepts I've learned. ",
+      url: "https://dev.to/geraldmuvengei06/cool-projects-to-help-you-learn-react-js-part-1-g19",
+      image: "https://res.cloudinary.com/practicaldev/image/fetch/s--IGeEcJLg--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2u4eu1hfv2skbun3tjcm.jpg",
+      publishedAt: "Oct 6th 2021",
+      source: {
+        name: "Dev.to",
+        url: "https://dev.to"
+      },
+    },
+    {
+      title: "Cool Projects to Help You Learn React Js - Part 2 ",
+      description: "Hello there 👋, citizens of the web!",
+      content: "A couple of days ago I decided to write a series of articles on Cool Projects to Help You Learn React Js. I remember when I started learning react, I went through the documentation, then I had to come up with interesting projects to help me grasp the concepts. I needed an API that I'd consume. However I didn't have the time to start building one. I went through the web and found interesting APIs that are publicly available for anyone to use. This saved me much time to work on other projects. ",
+      url: "https://dev.to/geraldmuvengei06/cool-projects-to-help-you-learn-react-js-part-2-1f7a",
+      image: "https://res.cloudinary.com/practicaldev/image/fetch/s--IGeEcJLg--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2u4eu1hfv2skbun3tjcm.jpg",
+      publishedAt: "Oct 7th 2021",
+      source: {
+        name: "Dev.to",
+        url: "https://dev.to"
+      },
+    },
+    {
+      title: "How to Use Environment Variables (env) in ExpressJs ",
+      description: "Well, hello!",
+      content: "If you're coming from frontend development with Vue, or React, you know that environment variables (.env) are initialized behind the scenes i.e. You don't have to require and use dotenv. However, when writing backend with, Expressjs, for instance, you have to initialize it like so:-",
+      url: "https://dev.to/geraldmuvengei06/how-use-environment-variables-env-in-expressjs-3bpc",
+      image: "https://res.cloudinary.com/practicaldev/image/fetch/s--X0LnYJuK--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8b077ke42bfe3629t2ah.jpg",
+      publishedAt: "Oct 21st 2021",
+      source: {
+        name: "Dev.to",
+        url: "https://dev.to"
+      },
+    }
+  ]
+  return (
+    <section id="portfolio" className="py-16">
+      <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
+        <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Articles</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">
+
+        {
+          posts.map((post) => {
+            return <Post {...post}/>
+          })
+        }
+        </div>
+
+      </div>
+    </section>
+  )
+}
+
+
 function Contact() {
   return (
-    <section className="about bg-white py-16">
+    <section id='contact' className="about bg-white py-16">
       <div className="container sm:px-4 md:px-40  mx-auto flex flex-col items-center">
-        <h1 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Contact Me</h1>
+        <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Contact Me</h2>
         <p className="text-center w-2/3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
         <Divider />
 
@@ -472,15 +470,15 @@ function Footer() {
   let social = [
     {
       icon: fb,
-      link: ""
+      link: "https://www.facebook.com/geraldmuvengei254"
     },
     {
       icon: insta,
-      link: ""
+      link: "https://www.instagram.com/slim_gerald/"
     },
     {
       icon: twitter,
-      link: ""
+      link: "https://twitter.com/geraldmuvengei2"
     },
 
 

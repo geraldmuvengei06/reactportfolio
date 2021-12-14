@@ -34,7 +34,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       const buttons = {
-        '.btn': {
+        '.input': {
           padding: '.5rem 1rem',
           borderRadius: '.25rem',
           fontWeight: '600',

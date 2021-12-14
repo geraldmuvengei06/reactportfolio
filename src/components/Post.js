@@ -11,7 +11,7 @@ export default function Post({ title, description, content, url, image, publishe
 
 
                         <span className="rounded-full bg-red-50 shadow px-2 py-1 text-red-400 lowercase mr-2">
-                            <a target="_blank" href={source.url}>{source.name}</a>
+                            <a target="_blank" rel="noreferrer" href={source.url} alt={title}>{source.name}</a>
                         </span>
                         <span className="text-grey-300">
                             {publishedAt}

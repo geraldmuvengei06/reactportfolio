@@ -35,7 +35,7 @@ import project2 from './images/project2.png';
 
 import './App.css';
 import { useEffect, useState } from 'react';
-import Counter from './features/counter/Counter';
+// import Counter from './features/counter/Counter';
 import Post from './components/Post';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { authenticate } from './features/auth/authSlice';
@@ -54,7 +54,7 @@ function App() {
       <About id="about" />
 
       <Divider />
-      <Counter />
+      {/* <Counter className="transparent" /> */}
 
       <Skills id="skills" />
       {/* portfolio */}
@@ -187,7 +187,7 @@ function About() {
         
         {/* <span className="uppercase text-sm font-medium border-r-2 border-l-2 border-black px-4 py-2 text-black">Explore</span> */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 my-12 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 my-12 ">
 
           {
             services.map((service) => {
@@ -344,7 +344,7 @@ function Portfolio() {
       <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
         <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Projects</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-12 ">
           {
             projects.map((project) => {
               return (
@@ -425,7 +425,7 @@ function Articles() {
       <div className="container px-4 md:px-40 mx-auto flex flex-col items-center">
         <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Articles</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-12 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-12 ">
 
         {
           posts.map((post) => {
@@ -445,7 +445,7 @@ function Contact() {
     <section id='contact' className="about bg-white py-16">
       <div className="container sm:px-4 md:px-40  mx-auto flex flex-col items-center">
         <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Contact Me</h2>
-        <p className="text-center w-2/3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, aspernatur. Eligendi dolore numquam necessitatibus fuga eveniet minima vero quae</p>
+        <p className="text-center w-2/3">React out to me, let us discuss your idea and turn it into a solution!</p>
         <Divider />
 
         <form className="w-10/12 sm:w-2/3 my-4">
@@ -460,6 +460,9 @@ function Contact() {
         </form>
 
         <button className="uppercase text-sm font-medium border-r-4 border-l-4 filter transition duration-500 hover:shadow hover:border-indigo-400 hover:text-indigo-400  border-black px-4 py-2 text-black">Submit</button>
+
+        
+        <blockquote class="twitter-tweet mt-12 w-10/12 sm:w-2/3"><p lang="en" dir="ltr">Hi <a href="https://twitter.com/hashtag/100DaysOfCode?src=hash&amp;ref_src=twsrc%5Etfw">#100DaysOfCode</a>, after learning <a href="https://twitter.com/react?ref_src=twsrc%5Etfw">@react</a> js, I&#39;ve offered my service on <a href="https://twitter.com/fiverr?ref_src=twsrc%5Etfw">@fiverr</a> as a react js developer. Made some sales and Fiverr promoted me to a Level One seller! check out my Gigs <a href="https://t.co/dtdIhwACrG">https://t.co/dtdIhwACrG</a></p>&mdash; g (@geraldmuvengei2) <a href="https://twitter.com/geraldmuvengei2/status/1471087183348088837?ref_src=twsrc%5Etfw">December 15, 2021</a></blockquote> 
 
       </div>
     </section>

@@ -1,5 +1,6 @@
 import logo from './images/logo.png';
-import heroimage from "./images/bg.png";
+// import heroimage from "./images/bg.png";
+import heroimage from "./images/development-stack.png";
 import mail from "./images/mail.png";
 import github from "./images/github.png";
 import linkedin from "./images/linkedin.png";
@@ -162,18 +163,18 @@ function About() {
   let services = [
     {
       image: design,
-      desc: "I'm a professional Frontend Developer. I a ton of experience in Vue.js, React.js Vanilla, Javascript. This is my main development stack. I like writing clean code. I believe that it takes good UI/UX to present one's ideas!",
+      desc: "I'm a professional Frontend Developer experienced in Vue.js, React.js, Vanilla Javascript, Bootstrap, Vuetify, and Tailwindcss. I like writing clean code. ",
       title: "Frontend Development"
     },
     {
       image: develop,
-      desc: "In addition to writing code for the frontend, I'm also conversant with building Rest APIs with PHP Laravel and Nodejs (MERN)",
+      desc: "I'm conversant with building Rest APIs with PHP Laravel and Nodejs (MERN).",
       title: "Fullstack Development"
     },
     {
       image: maintain,
-      desc: "I have skills in server management. AWS, Heroku, Vesta CP, VPS, Dedicated servers and more. I'm familiar with Linux (Ubuntu). Devops, CI/CD comes in handly in my career path.",
-      title: "Server Management & Maintenance"
+      desc: "When I am not developing web apps, I automate daily tasks with Python. ",
+      title: "Python Automation"
     },
   ];
 
@@ -182,8 +183,7 @@ function About() {
     <section id="about" className="about bg-white py-16">
       <div className="container px-4 md:px-40  mx-auto flex flex-col items-center" >
         <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">About Me</h2>
-        <p className="text-left text-2xl w-2/3 mb-12">My name is Gerald, I'm a passionate, self taught Frontend Developer in Vue and React. I love building web based products! What drives me each time I get to my keyboard to write code?
-        <br /> <br /> "Building Quality Solutions to Real Life Problems, with Quality Code ofcourse!"</p>
+        <p className="text-left text-2xl w-2/3 mb-12">I'm Gerald, a passionate, self-taught Frontend Developer in Vue and React. I love building quality solutions to real-life problems.</p>
         
         {/* <span className="uppercase text-sm font-medium border-r-2 border-l-2 border-black px-4 py-2 text-black">Explore</span> */}
 
@@ -445,7 +445,7 @@ function Contact() {
     <section id='contact' className="about bg-white py-16">
       <div className="container sm:px-4 md:px-40  mx-auto flex flex-col items-center">
         <h2 className="text-1xl mb-6 uppercase font-bold text-black border-black border-4 py-4 px-6 w-72 text-center">Contact Me</h2>
-        <p className="text-center w-2/3">React out to me, let us discuss your idea and turn it into a solution!</p>
+        <p className="text-center w-2/3">React to me, discuss your idea, I'll turn it into a fantastic web app!</p>
         <Divider />
 
         <form className="w-10/12 sm:w-2/3 my-4">

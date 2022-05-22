@@ -6,24 +6,43 @@
 } */
 
 
-.hero{
-    margin-top: -82px;
+.hero {
+  margin-top: -82px;
 }
 
-.hozirontal-scroll{
-    width: 1200px;
-    animation: infiniteHorizontalScroll 20s linear infinite;
+.hozirontal-scroll {
+  width: 1200px;
+  animation: infiniteHorizontalScroll 20s linear infinite;
 }
-.hozirontal-scroll:hover{
-    animation-play-state: paused;
+
+.hozirontal-scroll:hover {
+  animation-play-state: paused;
 }
 
 
-@keyframes infiniteHorizontalScroll{
-  from{
+@keyframes infiniteHorizontalScroll {
+  from {
     margin-left: 0%;
   }
-  to{
+
+  to {
     margin-left: -120%;
   }
+}
+
+/* loading */
+
+.loading::after {
+  content: ".";
+  color: transparent;
+  width: 15px !important;
+  height: 24px !important;
+  background: #FFF;
+  position: absolute;
+  /* left: 0; */
+  /* right: 0; */
+  top: -4px;
+  bottom: 10px !important;
+  border-radius: 0 50% 50% 0;
+
 }

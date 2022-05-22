@@ -6,9 +6,9 @@ export default function Post({ title, description, content, url, image, publishe
                 <div className="card-body p-6">
                     <h3 className="font-bold text-2xl overflow-hidden max-h-16">
                         <a href={url}>{title}</a>
-                    </h3>
+                    </h3> 
                     <p className="my-4">
-
+                    
 
                         <span className="rounded-full bg-red-50 shadow px-2 py-1 text-red-400 lowercase mr-2">
                             <a target="_blank" rel="noreferrer" href={source.url} >{source.name}</a>

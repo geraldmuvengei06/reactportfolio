@@ -16,14 +16,15 @@ module.exports = {
       black: colors.black,
       light: colors.white,
       indigo: colors.indigo,
-      purple: colors.purple,
+      purple: colors.purple, 
       pink: colors.pink,
       sky: colors.sky,
       white: colors.white,
       red: colors.red,
       blue: colors.blue,
       teal: colors.teal,
-      gray: colors.gray
+      gray: colors.gray,
+      green: colors.green
     }
   },
   variants: {
@@ -34,7 +35,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addComponents }) {
       const buttons = {
-        '.btn': {
+        '.input': {
           padding: '.5rem 1rem',
           borderRadius: '.25rem',
           fontWeight: '600',
